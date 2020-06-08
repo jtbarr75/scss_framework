@@ -1,0 +1,53 @@
+// Colors and Background
+
+$light-grey: #e6e6e6;
+$medium-grey: #b6b6b6;
+$dark-grey: #767676;
+
+@mixin color-light-grey {
+  color: $light-grey;
+}
+
+@mixin color-medium-grey {
+  color: $medium-grey;
+}
+
+@mixin color-dark-grey {
+  color: $dark-grey;
+}
+
+@mixin bg-light-grey {
+  background-color: $light-grey;
+}
+
+@mixin bg-medium-grey {
+  background-color: $medium-grey;
+}
+
+@mixin bg-dark-grey {
+  background-color: $dark-grey;
+}
+
+.text-light {
+  @include color-light-grey();
+}
+
+.text-medium {
+  @include color-medium-grey();
+}
+
+.text-dark {
+  @include color-dark-grey();
+}
+
+.bg-light-grey {
+  @include bg-light-grey()
+}
+
+.bg-medium-grey {
+  @include bg-medium-grey()
+}
+
+.bg-dark-grey {
+  @include bg-dark-grey()
+}

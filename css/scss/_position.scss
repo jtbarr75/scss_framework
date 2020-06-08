@@ -1,0 +1,16 @@
+// Position
+
+$position-attributes: static relative fixed absolute sticky;
+$locations: "top" "right" "bottom" "left";
+
+@each $position in $position-attributes {
+  .#{$position} {
+    position: $position;
+  }
+}
+
+@each $location in $locations {
+  .#{$location} {
+    #{$location}: 0;
+  }
+}

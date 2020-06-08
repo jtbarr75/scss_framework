@@ -1,0 +1,27 @@
+// Image
+
+img {
+  display: block;
+  width: 100%;
+}
+
+// Text
+
+p {
+  font: $font-stack 13pt/1.5;
+}
+
+body {
+  font-family: $font-stack;
+  font-size: $default-font-size;
+  line-height: 1.5;
+}
+
+$text-align-attributes: "center" "left" "right" "justify";
+@each $attribute in $text-align-attributes {
+  .text-#{$attribute} {
+    text-align: #{$attribute};
+  }
+}
+
+  

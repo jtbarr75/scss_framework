@@ -1,0 +1,16 @@
+// Nav
+
+nav {
+  margin-bottom: 0;
+  @include bg-light-grey();
+  ul {
+    display: flex;
+  }
+  a {
+    padding: 20px;
+    display: block;
+  }
+  a:hover {
+    @include bg-medium-grey();
+  }
+}

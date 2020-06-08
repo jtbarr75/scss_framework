@@ -1,0 +1,69 @@
+// Container
+
+.container {
+  width: $container-width;
+  margin: 0 auto;
+
+  @media (max-width: $container-width){
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.container-fluid {
+  @extend .container;
+  width: 100%;
+}
+
+// Row
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  // negative gutter width margin to offset padding on first and last column elements
+  margin-left: -$gutter-width;
+  margin-right: -$gutter-width;
+  padding: $gutter-width;
+}
+
+// Columns
+// Creates classes .col-1, .col-2... .col-$num-cols (e.g. 12) with widths incrementing up to 100%
+// Responsive sizes col-sm-1, col-md-1... have 100% width up to their breakpoint and then have 1/12, 2/12... widths
+
+.col {
+  flex: 1;
+  padding: $gutter-width;
+}
+
+$col-list: null;
+@for $i from 1 through $num-cols {
+  @each $size, $breakpoint in $breakpoints {
+    $col-list: append($col-list, unquote(".col-#{$size}-#{$i}"), comma);
+  }
+}
+#{$col-list} {
+  padding: $gutter-width;
+}
+
+@for $i from 1 through $num-cols {
+  .col-#{$i} {
+    width: 100% / $num-cols * $i;
+  }
+  $col-list: null;
+  @each $size in map-keys($breakpoints) {
+    $col-list: append($col-list, unquote(".col-#{$size}-#{$i}"), comma);
+  }
+  #{$col-list} {
+    width: 100%;
+  }
+}
+
+@each $size, $breakpoint in $breakpoints {
+  @media (min-width: $breakpoint){
+    @for $i from 1 through $num-cols {
+      .col-#{$size}-#{$i} {
+        width: 100% / $num-cols * $i;
+      }
+    }
+  }
+}

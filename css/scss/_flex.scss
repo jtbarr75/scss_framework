@@ -1,0 +1,59 @@
+// Flex attributes
+
+.d-flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+$justify-attributes: ("start": flex-start, "end": flex-end, "center": center, "around": space-around, "between": space-between, "evenly": space-evenly);
+
+@each $name, $attribute in $justify-attributes {
+  .justify-#{$name} {
+    justify-content: $attribute;
+  }
+}
+
+$align-items-attributes: ("stretch": stretch, "start": flex-start, "end": flex-end, "center": center, "baseline": baseline);
+
+@each $name, $attribute in $align-items-attributes {
+  .align-items-#{$name} {
+    align-items: $attribute;
+  }
+}
+
+$align-content-attributes: ("start": flex-start, "end": flex-end, "center": center, "around": space-around, "between": space-between, "evenly": space-evenly, "stretch": stretch);
+
+@each $name, $attribute in $align-content-attributes {
+  .align-content-#{$name} {
+    align-content: $attribute;
+  }
+}
+
+$align-self-attributes: ("stretch": stretch, "start": flex-start, "end": flex-end, "center": center, "baseline": baseline, "auto": auto);
+
+@each $name, $attribute in $align-self-attributes {
+  .align-self-#{$name} {
+    align-self: $attribute;
+  }
+}
+
+@for $i from 1 through 10 {
+  .order-#{$i} {
+    order: $i;
+  }
+}
